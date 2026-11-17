@@ -15,10 +15,10 @@ Firestore `detectados` que los teléfonos ya leen.
 Repositorio público: `github.com/gcruzhz/checklist-soporte-desktop`.
 Repo hermano (la app web): `github.com/gcruzhz/checklist-soporte-cloud`.
 
-> **Últimos cambios (2.5.8):** misma web que el teléfono 2.5.8;
-> actualizaciones de Windows (buscar con WUA e instalar con UAC si no
-> hay elevación; nunca reinicia sola); AppImage, .deb y portable
-> `.exe` en ZIP.
+> **Últimos cambios (2.5.9):** misma web que el teléfono 2.5.9;
+> «Equipos detectados» con «📲 Compartir por WhatsApp» y «✉️ Compartir
+> por correo» (wa.me al navegador del sistema, mailto con asunto);
+> AppImage, .deb y portable `.exe` en ZIP.
 > Historial completo en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Qué es cada parte

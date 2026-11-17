@@ -1,11 +1,35 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.8.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.9.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.9 — 2026-11-17
+
+- **Compartir un equipo detectado por WhatsApp y por correo**: cada
+  tarjeta de «Equipos detectados» (Por preparar y Mantenimientos) trae
+  «📲 Compartir por WhatsApp» (`wa.me/?text=`, sin número fijo) y «✉️
+  Compartir por correo» (`mailto:`, asunto «Equipo detectado:
+  \<hostname o modelo\>»). El texto reúne las características
+  detectadas (hardware, redes, AnyDesk, versiones, políticas,
+  impresora, fecha y quién detectó); los campos vacíos se omiten.
+  Compartir no marca el equipo como usado ni llama a la nube.
+- En escritorio el wa.me lo abre el navegador del sistema: `main.js`
+  ya intercepta `window.open` a http(s) con `setWindowOpenHandler`
+  (el wrapper de `window.open` del preload corre en su mundo aislado y
+  no afecta a la página; el mecanismo real es el handler de `main.js`).
+- Misma web que el teléfono 2.5.9 (bundle Firebase `57fa245b…` sin
+  cambios).
+- Tests del detector 473 pasaron / 0 fallaron; smoke-259 VEREDICTO OK.
+- AppImage 123 314 065 B, md5 `e0077f2fb7afc3ed199312b749efbc9f`;
+  .deb 97 110 760 B, md5 `40b3d87107c169deaf1427c5d777f477`;
+  portable `.exe` 99 125 738 B, md5 `0110d6f474ee16059b67b8ea1f2eb701`
+  en ZIP 99 125 896 B, md5 `c8128ac383740027937a5d3e0dfc732c`;
+  app.asar md5 `e5125ec60296a3fa413fced8de277533` (igual en AppImage y
+  portable).
 
 ## 2.5.8 — 2026-11-17
 
