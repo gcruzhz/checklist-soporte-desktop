@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+*.keystore
+**/firebase-config.js
+*.bak
+*.log
+.DS_Store
+www/
+docs/
+wine/

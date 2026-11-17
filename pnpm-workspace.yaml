@@ -1,0 +1,6 @@
+# pnpm 10+: los build scripts permitidos viven aquí, no en package.json.
+# Solo electron necesita correr su postinstall (descarga el binario).
+# electron-winstaller queda bloqueado a propósito: solo lo usa el target
+# Squirrel.Windows, que no usamos (Windows se empaqueta con NSIS).
+allowBuilds:
+  electron: true

@@ -1,0 +1,97 @@
+{
+  "author": "Gerardo",
+  "build": {
+    "appId": "mx.gerardo.checklistsoporte.desktop",
+    "copyright": "Copyright © Gerardo",
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libuuid1",
+        "libsecret-1-0"
+      ]
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "electronDownload": {
+      "isVerifyChecksum": false
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "detect.js",
+      "package.json",
+      "www/**/*"
+    ],
+    "linux": {
+      "category": "Utility",
+      "icon": "build/icon.png",
+      "maintainer": "Gerardo",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.png",
+      "target": [
+        "dmg"
+      ]
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "oneClick": true,
+      "perMachine": false,
+      "shortcutName": "Checklist de Soporte"
+    },
+    "productName": "Checklist de Soporte",
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "toolsets": {
+      "wine": "1.0.1"
+    }
+  },
+  "dependencies": {
+    "systeminformation": "5.33.20"
+  },
+  "description": "Checklist de Soporte 2.5.6 para escritorio (Windows/Mac/Linux): la misma app web de checklist-cloud con detector de caracteristicas del equipo.",
+  "devDependencies": {
+    "electron": "38.8.6",
+    "electron-builder": "26.18.0"
+  },
+  "license": "ISC",
+  "main": "main.js",
+  "name": "checklist-soporte-desktop",
+  "scripts": {
+    "build": "electron-builder --linux AppImage deb --win nsis",
+    "build:linux": "electron-builder --linux AppImage deb",
+    "build:mac": "electron-builder --mac dmg",
+    "build:win": "electron-builder --win nsis",
+    "copy-www": "node scripts/copy-www.js",
+    "prebuild": "node scripts/copy-www.js",
+    "prestart": "node scripts/copy-www.js",
+    "start": "electron .",
+    "verify-detect": "node scripts/verify-detect.js",
+    "test-detect-checks": "node scripts/test-detect-checks.js"
+  },
+  "version": "2.5.6",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron"
+    ]
+  },
+  "homepage": "https://checklist-soporte.web.app"
+}
