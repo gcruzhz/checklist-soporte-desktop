@@ -1,11 +1,28 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.9.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.10.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.10 — 2026-11-17
+
+- **Compartir un equipo detectado: WhatsApp recortado hasta Impresora,
+  correo completo.** El botón «📲 Compartir por WhatsApp» manda el
+  texto corto (hasta «Impresora: ...»); «✉️ Compartir por correo»
+  sigue mandando el texto completo con políticas, usuario sistemas y
+  fecha/quién detectó. Implementado con `detShareText(d, corto)` en la
+  web compartida; el panel en pantalla no cambió. Misma web que el
+  teléfono 2.5.10 (bundle Firebase `57fa245b…` sin cambios).
+- Tests del detector 473 pasaron / 0 fallaron; smoke-260 VEREDICTO OK
+  (WhatsApp termina en Impresora, correo con Políticas).
+- AppImage 123 313 662 B, md5 `b4687af2358e393c2d86d46562fb46bf`;
+  .deb 97 110 312 B, md5 `154d14511a3090e3d781c259a72eb641`;
+  portable `.exe` 99 140 236 B, md5 `b59701f8ee2e3f2ab529033ca277e63f`
+  en ZIP 99 140 396 B, md5 `8597a02a00ddd5c9e3c3f8f56144592f`;
+  app.asar md5 `6c4e9e270c042864102d7e09909d371a` en AppImage y portable.
 
 ## 2.5.9 — 2026-11-17
 
