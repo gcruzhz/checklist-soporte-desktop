@@ -7,7 +7,7 @@
 const { app, BrowserWindow, ipcMain, shell, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const { detectMachine, detectChecks, getMachineId, verificarPasswordSistemas, cambiarPasswordSistemas } = require('./detect');
+const { detectMachine, detectChecks, getMachineId, verificarPasswordSistemas, cambiarPasswordSistemas, buscarActualizaciones, instalarActualizaciones } = require('./detect');
 
 const isSmoke = !!process.env.CHECKLIST_DESKTOP_SMOKE;
 
@@ -144,6 +144,12 @@ ipcMain.handle('desktop-get-machine-id', async () => getMachineId());
 // y de ahí a PowerShell, en esta PC.
 ipcMain.handle('desktop-verificar-password-sistemas', async (event, usuario, actual) => verificarPasswordSistemas({}, usuario, actual));
 ipcMain.handle('desktop-cambiar-password-sistemas', async (event, usuario, actual, nueva) => cambiarPasswordSistemas({}, usuario, actual, nueva));
+
+// Actualizaciones de Windows (258): búsqueda e instalación con la API
+// WUA. La instalación pide permiso de administrador si hace falta; la
+// app nunca reinicia sola (solo avisa si Windows pide reinicio).
+ipcMain.handle('desktop-buscar-actualizaciones', async () => buscarActualizaciones({}));
+ipcMain.handle('desktop-instalar-actualizaciones', async () => instalarActualizaciones({}));
 
 ipcMain.handle('desktop-open-external', async (event, url) => {
   const u = String(url || '');

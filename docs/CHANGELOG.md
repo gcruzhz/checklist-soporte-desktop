@@ -1,10 +1,34 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.6.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.8.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
+
+
+## 2.5.8 — 2026-11-17
+
+- **Actualizaciones de Windows**: nuevo botón en Por preparar (solo
+  escritorio). IPC nuevo en `preload.js` / `main.js`:
+  `buscarActualizaciones` (WUA `CreateUpdateSearcher`, sin
+  elevación, timeout 15 min) e `instalarActualizaciones` (WUA
+  `CreateUpdateInstaller` + `Install()`, conteo por `ResultCode 2`,
+  timeout 120 min; con elevación directo, sin ella un `.ps1`
+  temporal con UAC cuya salida se captura por archivo temporal y se
+  borra al terminar). `runPowerShellLong` (timeout configurable) y
+  `runElevatedPsFileOutput` nuevos en `detect.js`. La app nunca
+  reinicia sola: solo avisa si `RebootRequired`.
+- Misma web que el teléfono 2.5.8 (bundle Firebase `57fa245b…` sin
+  cambios).
+- Tests del detector 473 pasaron / 0 fallaron; smoke-258 VEREDICTO OK.
+- AppImage 123 314 078 B, md5 `ceadd3e11d62b1a717832955d2cd2612`;
+  .deb 97 109 416 B, md5 `d5c218ac730cc80ade849fc0e62bc0d1`;
+  portable `.exe` 99 128 241 B, md5
+  `3100de41b83d34263d052ded99e06de0`, en ZIP
+  (`Checklist de Soporte 2.5.8.zip`, 99 128 399 B, md5
+  `b6233fe3314f093c3fd768f5ed5f9b6b`). `app.asar` md5
+  `79b4ce0a1b7d0cac5764a013e96a2158` (igual en AppImage y portable).
 
 ## 2.5.7 — 2026-11-17
 

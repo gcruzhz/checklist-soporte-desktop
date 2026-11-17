@@ -27,6 +27,10 @@ contextBridge.exposeInMainWorld('Desktop', {
   // guardan ni se mandan a la nube.
   verificarPasswordSistemas: (usuario, actual) => ipcRenderer.invoke('desktop-verificar-password-sistemas', usuario, actual),
   cambiarPasswordSistemas: (usuario, actual, nueva) => ipcRenderer.invoke('desktop-cambiar-password-sistemas', usuario, actual, nueva),
+  // Actualizaciones de Windows (258): buscar las pendientes e
+  // instalarlas (pide permiso de administrador). Nunca reinicia sola.
+  buscarActualizaciones: () => ipcRenderer.invoke('desktop-buscar-actualizaciones'),
+  instalarActualizaciones: () => ipcRenderer.invoke('desktop-instalar-actualizaciones'),
   openExternal: (url) => ipcRenderer.invoke('desktop-open-external', url),
 });
 
