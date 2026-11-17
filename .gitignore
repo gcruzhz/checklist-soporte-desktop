@@ -7,5 +7,5 @@ build/
 *.log
 .DS_Store
 www/
-docs/
+docs/smoke*
 wine/
