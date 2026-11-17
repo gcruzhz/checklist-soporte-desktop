@@ -6,6 +6,27 @@ cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+## 2.5.7 — 2026-11-17
+
+- **Contraseña del usuario local Windows «sistemas»**: nuevo botón en
+  Por preparar (solo escritorio). IPC nuevo en `preload.js` /
+  `main.js`: `verificarPasswordSistemas` (PowerShell
+  `ValidateCredentials`) y `cambiarPasswordSistemas`
+  (`Set-LocalUser`; con elevación directo, sin ella un `.ps1`
+  temporal con UAC que se borra al terminar). Escape PowerShell de
+  comillas simples (se duplican) en usuario y contraseñas; la
+  contraseña nunca se imprime en stdout/stderr/logs.
+- Misma web que el teléfono 2.5.7 (`index.html` md5
+  `470df09b8cbb8d0eda96a7bffaf5862b`, bundle Firebase `57fa245b…`).
+- Tests del detector 440 pasaron / 0 fallaron; smoke-257 VEREDICTO OK.
+- AppImage 123 309 644 B, md5 `a739797c5861e9a6e7cdc02acd69e563`;
+  .deb 97 103 784 B, md5 `dd7d7d5ac110522a91fb591feb2f4688`;
+  portable `.exe` 99 127 084 B, md5
+  `16e409dca0f5000bb7a60d603d4ae717`, en ZIP
+  (`Checklist de Soporte 2.5.7.zip`, 99 127 242 B, md5
+  `91784c2b59273361add7b8a95eb071f3`). `app.asar` md5
+  `c5dcbca71d20a6ed689e801db24eda6d` (igual en AppImage y portable).
+
 ## 2.5.6 — 2026-11-17
 
 - Misma web que el teléfono 2.5.6 (`index.html` md5

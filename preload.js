@@ -22,6 +22,11 @@ contextBridge.exposeInMainWorld('Desktop', {
   // machineId determinista (2.3.3) -> Promise<string>. Lo usa el teléfono
   // para el bloqueo del botón "Detectar este equipo" por máquina.
   getMachineId: () => ipcRenderer.invoke('desktop-get-machine-id'),
+  // Contraseña del usuario local de Windows (257): verificar la actual
+  // y cambiarla. Las contraseñas solo viajan al proceso main; nunca se
+  // guardan ni se mandan a la nube.
+  verificarPasswordSistemas: (usuario, actual) => ipcRenderer.invoke('desktop-verificar-password-sistemas', usuario, actual),
+  cambiarPasswordSistemas: (usuario, actual, nueva) => ipcRenderer.invoke('desktop-cambiar-password-sistemas', usuario, actual, nueva),
   openExternal: (url) => ipcRenderer.invoke('desktop-open-external', url),
 });
 

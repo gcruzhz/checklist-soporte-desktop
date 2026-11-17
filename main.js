@@ -7,7 +7,7 @@
 const { app, BrowserWindow, ipcMain, shell, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const { detectMachine, detectChecks, getMachineId } = require('./detect');
+const { detectMachine, detectChecks, getMachineId, verificarPasswordSistemas, cambiarPasswordSistemas } = require('./detect');
 
 const isSmoke = !!process.env.CHECKLIST_DESKTOP_SMOKE;
 
@@ -138,6 +138,12 @@ ipcMain.handle('desktop-detect', async () => {
 // botón "Detectar este equipo" por máquina. Contrato exacto:
 // window.Desktop.getMachineId() -> Promise<string>.
 ipcMain.handle('desktop-get-machine-id', async () => getMachineId());
+
+// Contraseña del usuario local de Windows (257). Las contraseñas nunca
+// se guardan ni se registran: solo viajan del renderer al proceso main
+// y de ahí a PowerShell, en esta PC.
+ipcMain.handle('desktop-verificar-password-sistemas', async (event, usuario, actual) => verificarPasswordSistemas({}, usuario, actual));
+ipcMain.handle('desktop-cambiar-password-sistemas', async (event, usuario, actual, nueva) => cambiarPasswordSistemas({}, usuario, actual, nueva));
 
 ipcMain.handle('desktop-open-external', async (event, url) => {
   const u = String(url || '');

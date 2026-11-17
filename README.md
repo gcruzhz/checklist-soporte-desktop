@@ -15,9 +15,10 @@ Firestore `detectados` que los teléfonos ya leen.
 Repositorio público: `github.com/gcruzhz/checklist-soporte-desktop`.
 Repo hermano (la app web): `github.com/gcruzhz/checklist-soporte-cloud`.
 
-> **Últimos cambios (2.5.6):** misma web que el teléfono 2.5.6; AppImage,
-> .deb y portable `.exe` en ZIP. Historial completo en
-> [docs/CHANGELOG.md](docs/CHANGELOG.md).
+> **Últimos cambios (2.5.7):** misma web que el teléfono 2.5.7;
+> contraseña del usuario local «sistemas» (verificar/cambiar, con
+> UAC si no hay elevación); AppImage, .deb y portable `.exe` en ZIP.
+> Historial completo en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Qué es cada parte
 
