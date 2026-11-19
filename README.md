@@ -15,11 +15,10 @@ Firestore `detectados` que los teléfonos ya leen.
 Repositorio público: `github.com/gcruzhz/checklist-soporte-desktop`.
 Repo hermano (la app web): `github.com/gcruzhz/checklist-soporte-cloud`.
 
-> **Últimos cambios (2.5.10):** misma web que el teléfono 2.5.10;
-> «Equipos detectados»: «📲 Compartir por WhatsApp» manda solo hasta
-> «Impresora:» y «✉️ Compartir por correo» sigue con el texto completo
-> (wa.me al navegador del sistema, mailto con asunto); AppImage, .deb
-> y portable `.exe` en ZIP.
+> **Últimos cambios (2.5.11):** misma web que el teléfono 2.5.11;
+> vista nueva «Responsiva» en Inicio: formulario que se envía por
+> WhatsApp al número configurado (wa.me al navegador del sistema);
+> AppImage, .deb y portable `.exe` en ZIP se construyen aparte.
 > Historial completo en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Qué es cada parte

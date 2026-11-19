@@ -1,11 +1,27 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.10.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.11.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.11 — 2026-11-19
+
+- **Vista «Responsiva» en la web compartida.** Quinto botón
+  «📋 Responsiva» en el selector de Inicio: formulario con Nombre
+  Completo, Número de colaborador, Sucursal, Puesto, Jefe Directo y
+  Área que se envía por WhatsApp al número configurado (guardado solo
+  en el teléfono, en localStorage); sin número abre `wa.me/?text=`
+  para elegir el contacto. El envío no guarda nada en la nube. Misma
+  web que el teléfono 2.5.11 (bundle Firebase `57fa245b…` sin cambios).
+- Tests del detector 473 pasaron / 0 fallaron; smoke-261 VEREDICTO OK
+  (wa.me con el número normalizado con 52 y el texto con los 6 datos
+  y la fecha; Limpiar conserva el número; sin número abre wa.me/?text=
+  y avisa).
+- Solo código, tests, smoke y docs en este cambio: los instaladores de
+  escritorio 2.5.11 se construyen aparte.
 
 ## 2.5.10 — 2026-11-17
 
