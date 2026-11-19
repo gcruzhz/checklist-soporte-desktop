@@ -1,11 +1,39 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.13.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.14.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.14 — 2026-11-19
+
+- **Vista «Responsiva»: texto de invitación, Archivar y «Ver
+  responsivas anteriores».** Misma web que el teléfono 2.5.14 (bundle
+  Firebase nuevo `f9c4918d…`, 506 932 B). El texto «Por favor llena
+  tus datos para crear tu responsiva» aparece en la vista, en el
+  mensaje de WhatsApp del enlace en blanco (antes del enlace) y en
+  `responsiva.html`; cada tarjeta de «Responsivas enviadas» trae
+  «📥 Archivar» (con confirmación; archivar no borra) y el botón
+  «📂 Ver responsivas anteriores» muestra las archivadas con su botón
+  «↩️ Restaurar». El formulario directo del técnico sigue intacto.
+- Tests del teléfono 896 true / 0 false (876 de 2.5.13 + 20 nuevas de
+  la serie 264); detector tests 473/0; smoke-264 VEREDICTO OK
+  (texto de invitación en vista y en el wa.me del enlace en blanco;
+  pendiente y llenada con Archivar; archivar con confirmación sale de
+  la principal y entra en archivadas; ver anteriores muestra la
+  tarjeta con «Archivada» y Restaurar; restaurar la devuelve; sin
+  archivadas el mensaje vacío; WhatsApp con los 6 datos; correo con
+  asunto «Responsiva: Juan Pérez López»; Excel con el nombre
+  `responsiva-juan-p-rez-l-pez.xlsx`).
+- AppImage 123 321 815 B, md5 `83d51d1bbe2cc9d1e400909bdbd6f0ae`;
+  .deb 97 114 304 B, md5 `52107b4bc5cbe467f1ed500e34ffc8c3`;
+  portable `.exe` 99 146 226 B, md5 `6e1292eefd3f16a4ecfd25897db5e902`
+  en ZIP 99 140 535 B, md5 `41563e1570e5bbd970d0f20fd7c56c7b`;
+  app.asar md5 `6aa7ff493320be9ea9fb1662cc684fe4` en AppImage, .deb y
+  portable (bundle nuevo `f9c4918d…` dentro, `www/index.html` md5
+  `e64acbbba466759205431be5f47c63b9`, igual que en la APK).
 
 ## 2.5.13 — 2026-11-19
 
