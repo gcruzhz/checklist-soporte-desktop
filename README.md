@@ -15,11 +15,12 @@ Firestore `detectados` que los teléfonos ya leen.
 Repositorio público: `github.com/gcruzhz/checklist-soporte-desktop`.
 Repo hermano (la app web): `github.com/gcruzhz/checklist-soporte-cloud`.
 
-> **Últimos cambios (2.5.12):** misma web que el teléfono 2.5.12;
-> vista «Responsiva»: botón «💾 Guardar y cerrar» que guarda el
-> formulario a medias como borrador local y lo restaura al abrir;
-> al enviar por WhatsApp el formulario queda vacío y el borrador se
-> borra; AppImage, .deb y portable `.exe` en ZIP.
+> **Últimos cambios (2.5.13):** misma web que el teléfono 2.5.13;
+> vista «Responsiva»: botón «📤 Enviar formulario en blanco» que crea
+> la responsiva en la nube y la comparte por WhatsApp con el enlace
+> `responsiva.html?id=…`; lista «Responsivas enviadas» en vivo con
+> pendientes y llenadas (WhatsApp, correo y «Guardar en Excel»);
+> AppImage, .deb y portable `.exe` en ZIP.
 > Historial completo en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Qué es cada parte
@@ -376,6 +377,7 @@ capturas van a `docs/smoke*-*.png|log`, que son evidencia de pruebas y
 | Script | Qué verifica |
 |---|---|
 | `smoke-240-detect.js` | Detectar → «Usar este equipo» → tecleo en el formulario; no debe aparecer ninguna ventana de diálogo nativa. |
+| `smoke-263-pass.js` | Responsiva en blanco: «Enviar formulario en blanco» → wa.me con `responsiva.html?id=…`; pendiente con «Copiar enlace»; llenada con los 6 datos y botones de WhatsApp, correo y Excel. |
 | `smoke-250-mant.js` / `smoke-251-mant.js` | Mantenimientos Preventivos: Inicio → Mantenimientos → equipo detectado (políticas + usuario sistemas + impresora) → «Usar este equipo» → formulario → tecleo (XTEST) → firma del técnico en canvas → «Crear orden de servicio» → folio 00001 y vista de la orden. |
 | `smoke-252-mant.js` | Botón «Detectar equipo» en Mantenimientos: abre solo el panel con el equipo detectado → «Dar mantenimiento a este equipo» → formulario prellenado (serie/hostname/modelo). |
 | `smoke-253-orden.js` | En Entregados el recién entregado aparece hasta arriba (`deliveredAt` descendente); no-admin ve los propios primero, admin plano; En preparación y Listos conservan `createdAt` ascendente; la búsqueda sigue filtrando. |

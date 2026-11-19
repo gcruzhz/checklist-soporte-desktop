@@ -87,7 +87,7 @@
     "verify-detect": "node scripts/verify-detect.js",
     "test-detect-checks": "node scripts/test-detect-checks.js"
   },
-  "version": "2.5.12",
+  "version": "2.5.13",
   "pnpm": {
     "onlyBuiltDependencies": [
       "electron"

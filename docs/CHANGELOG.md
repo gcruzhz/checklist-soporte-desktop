@@ -1,11 +1,34 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.12.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.13.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.13 — 2026-11-19
+
+- **Vista «Responsiva»: enviar el formulario en blanco por WhatsApp
+  y lista «Responsivas enviadas» en vivo.** Misma web que el teléfono
+  2.5.13 (bundle Firebase nuevo `de3d2dce…`, 506 783 B). El botón
+  «📤 Enviar formulario en blanco» crea la responsiva y abre
+  `wa.me/?text=` con el enlace `responsiva.html?id=…` para elegir
+  contacto; la lista muestra pendientes («🔗 Copiar enlace») y
+  llenadas con los 6 datos y los botones de WhatsApp, correo y
+  «💾 Guardar en Excel». El formulario directo del técnico sigue
+  intacto.
+- Tests del teléfono 876 true / 0 false; smoke-263 VEREDICTO OK
+  (envío en blanco con wa.me y el enlace; pendiente con Copiar
+  enlace; llenada con los 6 datos y los 3 botones; WhatsApp con los
+  6 datos; correo con asunto «Responsiva: Juan Pérez López»; Excel
+  con el nombre `responsiva-juan-p-rez-l-pez.xlsx`).
+- AppImage 123 322 249 B, md5 `5d0dfc7347d401ab3f6005b2e5f56cf7`;
+  .deb 97 111 996 B, md5 `308d82332ce9a335b71571229b59ba44`;
+  portable `.exe` 99 141 847 B, md5 `cc68d54f3d1abd7e54236581448e55e4`
+  en ZIP 99 135 942 B, md5 `54e317e68a335725864fbc197be11ae8`;
+  app.asar md5 `f5a9b548adeb0c77bc294ee53b7e204b` en AppImage, .deb y
+  portable (bundle nuevo `de3d2dce…` dentro).
 
 ## 2.5.12 — 2026-11-19
 
