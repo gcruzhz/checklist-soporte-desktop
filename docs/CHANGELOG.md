@@ -1,11 +1,33 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.11.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.12.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.12 — 2026-11-19
+
+- **Vista «Responsiva»: botón «💾 Guardar y cerrar» con borrador
+  local.** Guarda los 6 campos en localStorage
+  (`checklist-soporte-resp-borrador-v1`) aunque el formulario esté
+  incompleto y vuelve a Inicio; al abrir Responsiva el borrador se
+  restaura. Al enviar por WhatsApp el borrador se borra y el
+  formulario queda vacío para la próxima; «Limpiar» también borra el
+  borrador. El número de WhatsApp guardado sigue en su propia clave
+  y no se toca al guardar el borrador. Misma web que el teléfono
+  2.5.12 (bundle Firebase `57fa245b…` sin cambios).
+- Tests del teléfono 861 true / 0 false; smoke-262 VEREDICTO OK
+  (guardado a medias y restauración al reabrir; envío wa.me con el
+  número normalizado con 52 y los 6 datos y la fecha; tras enviar el
+  formulario queda vacío y el borrador borrado; Limpiar borra el
+  borrador; el número se conserva en los tres casos).
+- AppImage 123 318 014 B, md5 `672a0a9c6557cfcf91321a16a0a3aa98`;
+  .deb 97 111 436 B, md5 `dc5dd024286085cd7433b3c99593c2cf`;
+  portable `.exe` 99 143 033 B, md5 `6a8a50a865af2442b5e1de8d6034ca90`
+  en ZIP 99 143 193 B, md5 `ae385f79eb2441413fe7375b6579a2a8`;
+  app.asar md5 `b4a34621103d58c77641a72a1b181f9d` en AppImage y portable.
 
 ## 2.5.11 — 2026-11-19
 

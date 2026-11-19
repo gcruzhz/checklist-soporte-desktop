@@ -15,10 +15,11 @@ Firestore `detectados` que los teléfonos ya leen.
 Repositorio público: `github.com/gcruzhz/checklist-soporte-desktop`.
 Repo hermano (la app web): `github.com/gcruzhz/checklist-soporte-cloud`.
 
-> **Últimos cambios (2.5.11):** misma web que el teléfono 2.5.11;
-> vista nueva «Responsiva» en Inicio: formulario que se envía por
-> WhatsApp al número configurado (wa.me al navegador del sistema);
-> AppImage, .deb y portable `.exe` en ZIP se construyen aparte.
+> **Últimos cambios (2.5.12):** misma web que el teléfono 2.5.12;
+> vista «Responsiva»: botón «💾 Guardar y cerrar» que guarda el
+> formulario a medias como borrador local y lo restaura al abrir;
+> al enviar por WhatsApp el formulario queda vacío y el borrador se
+> borra; AppImage, .deb y portable `.exe` en ZIP.
 > Historial completo en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Qué es cada parte
