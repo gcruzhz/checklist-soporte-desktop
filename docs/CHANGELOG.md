@@ -1,11 +1,35 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.14.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.15.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.15 — 2026-11-19
+
+- **Vista «Responsiva»: «Enviar formulario en blanco» al número de
+  WhatsApp configurado.** Misma web que el teléfono 2.5.15 (bundle
+  Firebase SIN cambio `f9c4918d…`, 506 932 B). El botón lee el número
+  del campo `#fResp-wa` al pulsar: con número válido abre
+  `wa.me/<número>?text=` con la invitación y el enlace; vacío o
+  inválido abre `wa.me/?text=` para elegir contacto con el aviso.
+  El envío directo del técnico y el flujo de archivar/ver anteriores
+  siguen intactos.
+- Tests del teléfono 903 true / 0 false (896 de 2.5.14 + 7 nuevas de
+  la serie 265); detector tests 473/0; smoke-265 VEREDICTO OK
+  (clics reales: con número wa.me/525512345678 con invitación y
+  enlace; sin número el chooser con el toast; el resto del flujo de
+  Responsiva — pendiente, llenada, WhatsApp, correo, Excel, archivar,
+  ver anteriores — sigue igual).
+- AppImage 123 321 923 B, md5 `c524e48982007f6d4d6f0d19252faced`;
+  .deb 97 113 268 B, md5 `94ae9e7842738d018646be10adeacfa0`;
+  portable `.exe` 99 144 904 B, md5 `1c058fc1a9e26e3f0c67b740e4d87e2f`
+  en ZIP 99 145 064 B, md5 `1b2122d89d1fe4f817dbd43669bf05f5`;
+  app.asar md5 `32eaa9babdb27d1c4241ed7f636b8a14` en AppImage, .deb y
+  portable (bundle sin cambio `f9c4918d…` dentro, `www/index.html` md5
+  `db7493b921db8d49d2e60e0bf87319c7`, igual que en la APK).
 
 ## 2.5.14 — 2026-11-19
 

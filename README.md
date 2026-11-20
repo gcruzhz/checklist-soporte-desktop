@@ -15,13 +15,10 @@ Firestore `detectados` que los teléfonos ya leen.
 Repositorio público: `github.com/gcruzhz/checklist-soporte-desktop`.
 Repo hermano (la app web): `github.com/gcruzhz/checklist-soporte-cloud`.
 
-> **Últimos cambios (2.5.14):** misma web que el teléfono 2.5.14;
-> vista «Responsiva»: texto «Por favor llena tus datos para crear tu
-> responsiva» (en la vista, en el WhatsApp del enlace en blanco y en
-> `responsiva.html`); cada tarjeta trae «📥 Archivar» (con
-> confirmación; archivar no borra) y «📂 Ver responsivas anteriores»
-> muestra las archivadas con «↩️ Restaurar»;
-> AppImage, .deb y portable `.exe` en ZIP.
+> **Últimos cambios (2.5.15):** misma web que el teléfono 2.5.15;
+> «Enviar formulario en blanco» manda el enlace al número de WhatsApp
+> configurado en la vista (sin número, elige contacto); bundle de
+> Firebase sin cambio; AppImage, .deb y portable `.exe` en ZIP.
 > Historial completo en [docs/CHANGELOG.md](docs/CHANGELOG.md).
 
 ## Qué es cada parte
