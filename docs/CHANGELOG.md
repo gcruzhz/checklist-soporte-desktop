@@ -7,6 +7,26 @@ cambios de la app en sí (checklist, renta, mantenimientos) están en el
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
 
+## 2.5.17 — 2026-11-25
+
+- **PDF del Acuse Sistemas corregido para verse IGUAL que el formato
+  real** (misma web del repo cloud): logo Lapi real arriba a la
+  izquierda, título «ACUSE DE RECIBO» en rectángulo gris claro,
+  línea naranja de 2.5 pt, fecha en español largo («30 de Octubre de
+  2026»), PARA / DE en negrita cursiva 24 pt con valores desde ~28%
+  del ancho, ANEXO con valor negrita cursiva subrayado y tabla
+  RECIBE gris con 3 filas altas para llenar a mano. Comparación
+  visual del PDF generado contra la captura del formato real:
+  coincide. **Carta Responsiva re-verificada y corregida:** logo en
+  imagen, tabla Código con rejilla y negritas, encabezado «Exclusivo
+  de Sistemas» en verde #9BBB59 y campo nuevo «Área»; PDF de 2
+  páginas carta verificado contra el docx original.
+- Humo nuevo `scripts/smoke-267-formatos.js` (patrón de la 2.5.16):
+  versión 2.5.17, fecha en español largo, logo Lapi, título y tabla
+  RECIBE en el PDF del Acuse; verde y Área en la Carta.
+- Versión 2.5.17. La web es la misma del repo cloud (bundle de
+  Firebase sin cambio, md5 `d8ad9d102d13ef69925d7bdab65b9e33`).
+
 ## 2.5.16 — 2026-11-25
 
 - **Dos formularios nuevos con PDF: «Acuse Sistemas» y «Carta
