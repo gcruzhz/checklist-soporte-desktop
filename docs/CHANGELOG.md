@@ -1,11 +1,70 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.15.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.16.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.16 — 2026-11-25
+
+- **Dos formularios nuevos con PDF: «Acuse Sistemas» y «Carta
+  Responsiva» (FO-SI-10).** Dos botones en Inicio («📄 Acuse
+  Sistemas», «📑 Carta Responsiva») y dos vistas nuevas (`viewAcuse`,
+  `viewCarta`) con formulario + lista de guardados (PDF / WhatsApp /
+  Correo / Eliminar + reabrir tocando la tarjeta). Acuse: Fecha (hoy
+  por defecto), Para*, De*, Anexo opcional; empieza vacío; PDF de 1
+  página carta con la fecha en formato largo («Septiembre 01, 2026»),
+  tabla PARA / DE / ANEXO y bloque RECIBE para llenar a mano. Carta:
+  Fecha de solicitud, folio (solo lectura, «Se asigna al guardar»),
+  Nombre del colaborador*, Número de colaborador, Sucursal, Puesto,
+  Jefe Directo, Ip de Red y Observaciones, más tabla de equipo con
+  filas que se agregan/quitan (Modelo, Marca, Número de serie,
+  Concepto); folio de 5 dígitos asignado al guardar (en local,
+  contador en localStorage desde 00001); PDF de 2 páginas carta como
+  el original (encabezado FO-SI-10, DATOS DEL SOLICITANTE, tabla
+  «Exclusivo de Sistemas», NOMBRE Y FIRMA DEL USUARIO y las
+  RESPONSABILIDADES VERBATIM en la p2). Sin nube los guardados van a
+  localStorage; con nube a Firestore (`acuses`, `cartas`,
+  `config/foliosCarta`). ⚠️ Las reglas nuevas de Firestore NO se
+  publicaron por CLI desde el sandbox (firebaserules.googleapis.com
+  inalcanzable): hay que pegarlas en la consola de Firebase antes de
+  que los acuses/cartas se puedan guardar en la nube (sin eso darán
+  permiso denegado).
+- Tests del teléfono 926 true / 0 false (903 de 2.5.15 + 23 nuevas de
+  la serie 266); detector sin cambios; smoke-266 VEREDICTO OK como
+  root y como `nobody` (clics reales: Inicio con los 2 botones nuevos
+  y versión 2.5.16; acuse vacío por defecto, validación de Para/De,
+  guardar con fecha «Septiembre 01, 2026», PDF con PARA/DE/ANEXO/
+  RECIBE, WhatsApp, correo con asunto «Acuse Sistemas — Checklist de
+  Soporte», reabrir, limpiar, eliminar con confirmación; carta con
+  folio «Se asigna al guardar», validación, 2 filas de equipo
+  (agregar/quitar), guardar con folio 00001, PDF FO-SI-10 de 2
+  páginas con encabezado, folio, equipos y responsabilidades
+  VERBATIM, WhatsApp, correo con asunto «Carta Responsiva folio
+  00001 — Checklist de Soporte», reabrir con las 2 filas, limpiar,
+  eliminar; cero errores JS nuevos). Capturas en
+  `docs/smoke266-*.png`.
+- **Permisos: el primer build salió con archivos 660/640 fuera del
+  asar** (`.desktop` 640 en AppImage, `apparmor-profile` y
+  `package-type` 660 en .deb/.rpm, directorios 770 en AppImage):
+  `fix-permissions.js` solo cubre `linux-unpacked` y esos archivos
+  los crean los targets DESPUÉS del hook, con la umask 0007 del
+  shell. Se reconstruyó todo con `umask 022` y quedó limpio — de
+  ahora en adelante los builds Linux/Windows se corren con
+  `umask 022` (lección en `~/AGENTS.md`).
+- AppImage 123 326 252 B, md5 `3ee491f2cd4886f3e214bdafd498c0d7`;
+  .deb 97 128 012 B, md5 `e5a17ca49c25050e8b5c69e02b55942c`;
+  .rpm 86 201 489 B, md5 `e4f95402520eb230897bc5287463a5f4`;
+  portable `.exe` 99 153 469 B, md5 `9111233e898e14d4dbcdad1e8050bddb`
+  en ZIP 99 149 133 B, md5 `3026cd56aba3099e5cab59e7faaf49b4`;
+  app.asar md5 `ee17b7dd43dd0ab017840b3cdd996815` en AppImage, .deb,
+  .rpm y portable (verificado por extracción en los 4; bundle nuevo
+  `d8ad9d10…`, 508 719 B, dentro, `www/index.html` md5
+  `91f9aa7b287cbccd1af6e42ba65ed545`, igual que en la APK).
+  Permisos verificados: app.asar 644 y cero archivos 660/640 y
+  directorios 755 en los 3 de Linux.
 
 ## 2.5.15 — 2026-11-19
 
