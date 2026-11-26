@@ -69,7 +69,7 @@
   "dependencies": {
     "systeminformation": "5.33.20"
   },
-  "description": "Checklist de Soporte 2.5.18 para escritorio (Windows/Mac/Linux): la misma app web de checklist-cloud con detector de caracteristicas del equipo.",
+  "description": "Checklist de Soporte 2.5.19 para escritorio (Windows/Mac/Linux): la misma app web de checklist-cloud con detector de caracteristicas del equipo.",
   "devDependencies": {
     "electron": "38.8.6",
     "electron-builder": "26.18.0"
@@ -89,7 +89,7 @@
     "verify-detect": "node scripts/verify-detect.js",
     "test-detect-checks": "node scripts/test-detect-checks.js"
   },
-  "version": "2.5.18",
+  "version": "2.5.19",
   "pnpm": {
     "onlyBuiltDependencies": [
       "electron"

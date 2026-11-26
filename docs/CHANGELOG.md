@@ -1,11 +1,49 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.16.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.19.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.19 — 2026-11-25
+
+- **PDF de la Carta con Área y Jefe Directo en cajas separadas**
+  (misma web del repo cloud): antes iban juntos en una sola celda
+  «Área: Jefe Directo:» con el valor unido; ahora son DOS cajas
+  apiladas con borde, cada una con su etiqueta y su valor («Área:
+  Sistemas», «Jefe Directo: María García»), como las demás del
+  formato FO-SI-10.
+- **Aviso de guardado según la causa real + respaldo local con
+  reintento:** si la nube falla, la carta/acuse queda guardada en el
+  teléfono marcada «⏳ Pendiente de sincronizar», con botón
+  «🔄 Reintentar» y reintento automático al abrir la vista; el
+  mensaje dice si faltan las reglas, si no hay conexión o el código
+  del error. En modo local (sin nube) el guardado no marca pendiente.
+- **Barra superior solo con Inicio y Equipo:** las pestañas del medio
+  ya no existen; Usuarios (solo admin) se abre desde el botón
+  «👥 Usuarios» de la barra de sesión.
+- Humo nuevo `scripts/smoke-269-formatos.js` (patrón de la 2.5.18):
+  versión 2.5.19, barra solo Inicio/Equipo con botón Usuarios oculto
+  en modo local, PDF de la Carta con dos rectángulos 410/166/22
+  (Área y Jefe Directo separados, sin «Área: Jefe Directo:» ni
+  «Sistemas - María García»), `mensajeErrorNube` con las 3 causas y
+  marcas de pendiente/reintento en el código. **VEREDICTO OK.**
+  Humo no-root: AppImage extraído corrido como `nobody` se mantuvo
+  vivo 30 s sin errores de acceso a app.asar.
+- Versión 2.5.19. La web es la misma del repo cloud (bundle de
+  Firebase md5 `9d4f0a81f3108d0f92f50f08fc48c752`, `www/index.html`
+  md5 `97917c56481ed4a7d913505195a5ac0a`).
+  AppImage 123,363,092 B md5 `664ec5573f74f1acb5737d4ac7976254`;
+  .deb 97,156,812 B md5 `e35981cc3649cdf52ac7ba66df752175`;
+  .rpm 86,220,697 B md5 `8e082ca0cc836929ff84eb4deb6755b3`;
+  Windows portable .exe 99,175,886 B md5
+  `b62f177679407a72730cd2025240103f` (NSIS portable, app.asar
+  md5 `3cb435c866099427189cd331654a2c8b`, igual que en Linux) y su
+  ZIP 99,168,580 B md5 `6d683fbd1513e0e86fd461a6ec3ca733`.
+  app.asar 644 en los tres paquetes Linux (verificado en .deb,
+  .rpm y AppImage extraído).
 
 ## 2.5.18 — 2026-11-25
 
