@@ -1,11 +1,82 @@
 # Changelog — Checklist de Soporte (escritorio)
 
-Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.19.
+Cambios de la app de escritorio (Electron) por versión, 2.3.0 → 2.5.21.
 La web que carga es la misma del repo cloud (`www/index.html`); los
 cambios de la app en sí (checklist, renta, mantenimientos) están en el
 `docs/CHANGELOG.md` del repo cloud. Fuentes: el historial registrado
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
+
+## 2.5.21 — 2026-11-26
+
+- **Botón «🖨️ Imprimir» arreglado de raíz en el teléfono (Carta y
+  Acuse)** (misma web del repo cloud): en Android/iOS nativo ya NO
+  usa iframe + `window.print()` (el WebView lo ignora); guarda el PDF
+  en CACHE con Filesystem y lo imprime con el plugin nuevo
+  `@capgo/capacitor-printer` 8.1.11 (`Printer.printPdf`, diálogo de
+  impresión del sistema), con fallback FileOpener → Share → toast. En
+  escritorio (Electron) se conserva el iframe oculto + `window.print()`,
+  que ahí sí funciona. La impresión en una impresora física real sigue
+  pendiente de prueba por Gerardo.
+- Humo nuevo `scripts/smoke-271-formatos.js` (patrón de la 2.5.20):
+  versión 2.5.21, Acuse sin folio de extremo a extremo, Carta con
+  folio 00001, Imprimir crea el iframe oculto y la llamada a print()
+  se cuenta (1 en Acuse, 2 en Carta). **VEREDICTO OK.** Humo no-root
+  (AppImage extraído, corrido como `nobody` con `APPDIR` explícito y
+  el árbol en `/tmp`): proceso Electron + renderer vivos a los 20 s
+  cargando `app.asar`, sin errores de acceso (el error `synapse is not
+  defined` en consola es preexistente desde 2.4.0; los avisos dbus son
+  del sandbox, sin bus). Nota de método: correr el AppRun extraído
+  bajo `/home/hatch` como `nobody` NO prueba la app — `/home/hatch`
+  es 2770 y `readlink -f` falla, así que el AppRun gira en bucle
+  infinito sin lanzar el binario (eso era el "vivo 33 s" de la 2.5.20);
+  hay que copiar el árbol a `/tmp` y pasar `APPDIR`.
+- Versión 2.5.21. La web es la misma del repo cloud (bundle de
+  Firebase md5 `c4fb1cce63c0d71ae96b1aee931ee740`, `www/index.html`
+  md5 `0f748b69b4dbe2113e304efc9d340c41`).
+  AppImage 123,363,053 B md5 `a0c04cfafb37794aefeb183f54cc276e`;
+  .deb 97,151,652 B md5 `08f7d7a55e5fb3e9561c8e5c0067d35e`;
+  .rpm 86,229,705 B md5 `190e33478841749b85e804cad1de3190`;
+  Windows portable .exe 99,177,940 B md5
+  `0da90d0ba960d2e20addc4420a172ebc` (NSIS portable, app.asar md5
+  `baa33d23aacef3daf6e109d25ab492d5`, igual que en Linux) y su
+  ZIP 99,172,650 B md5 `c13eb2f88abcd576d4994c7ee810d1f0`.
+  app.asar 644 en los tres paquetes Linux (verificado en .deb,
+  .rpm y AppImage extraído).
+
+
+
+## 2.5.20 — 2026-11-26
+
+- **Sin duplicados en «Cartas/Acuses guardados» + Acuse SIN folio +
+  botón «🖨️ Imprimir»** (misma web del repo cloud): `dedupeDocs()`
+  por id y por folio y guarda en curso que bloquea el doble toque;
+  el Acuse ya no lleva folio en formulario, PDF, tarjeta ni textos
+  (la Carta sí lo conserva en todos lados); Imprimir abre el PDF en
+  un iframe oculto y llama a `print()` (diálogo del sistema).
+- Humo nuevo `scripts/smoke-270-formatos.js` (patrón de la 2.5.19):
+  versión 2.5.20, Acuse sin folio de extremo a extremo, Carta con
+  folio 00001, Imprimir crea el iframe oculto y la llamada a print()
+  se cuenta (1 en Acuse, 2 en Carta). **VEREDICTO OK.** Corrección
+  del humo en esta versión: el primer intento se colgó en 5c porque
+  el `print()` real abre el diálogo nativo de Electron y bloquea el
+  renderer; ahora el humo stubbea el `print()` del iframe al
+  crearlo (defecto del humo, no de la app). Humo no-root: AppImage
+  extraído corrido como `nobody` se mantuvo vivo 33 s sin errores
+  de acceso a app.asar (el error `synapse is not defined` en consola
+  es preexistente desde 2.4.0).
+- Versión 2.5.20. La web es la misma del repo cloud (bundle de
+  Firebase md5 `c4fb1cce63c0d71ae96b1aee931ee740`, `www/index.html`
+  md5 `d0ae3c865687cd54bc33cd62410ebf31`).
+  AppImage 123,362,968 B md5 `bab27815ce68af02beba344e55dce80e`;
+  .deb 97,158,716 B md5 `45ac0511c8d10261eface4e3625d45c0`;
+  .rpm 86,226,153 B md5 `254e0eee30374ae9a7e71a553adc2639`;
+  Windows portable .exe 99,177,929 B md5
+  `367e3ad518206ab99274ed21281bf1bd` (NSIS portable, app.asar md5
+  `54722be8af69d643769b8cabb986ea7f`, igual que en Linux) y su
+  ZIP 99,173,499 B md5 `ac3e0f7b8f8706a9f572001f4e1c0ba8`.
+  app.asar 644 en los tres paquetes Linux (verificado en .deb,
+  .rpm y AppImage extraído).
 
 ## 2.5.19 — 2026-11-25
 
