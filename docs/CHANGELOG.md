@@ -7,6 +7,38 @@ cambios de la app en sí (checklist, renta, mantenimientos) están en el
 del proyecto (memoria 2026-11-13 a 2026-11-17).
 
 
+## 2.5.18 — 2026-11-25
+
+- **PDF de la Carta con cajas con borde visible y folio al abrir**
+  (misma web del repo cloud): campos del solicitante en celdas con
+  borde (Nombre, Número, Sucursal, Puesto; Ip de Red; «Área: Jefe
+  Directo»; Observaciones de ancho completo), tabla «Exclusivo de
+  Sistemas» verde #9BBB59 verificada contra la imagen de
+  referencia; Acuse con folio nuevo arriba a la derecha (secuencia
+  `config/foliosAcuse`, independiente de la de cartas) y Carta con
+  folio asignado al abrir. Comparación visual del PDF generado
+  contra la imagen de referencia: coincide.
+- Humo nuevo `scripts/smoke-268-formatos.js`: folio al abrir en
+  ambas formas (Acuse 00001 → Limpiar 00002; Carta 00001 → Limpiar
+  00002), guardado con folio, PDF con FOLIO y con las cajas con
+  borde, WhatsApp/correo con folio. **VEREDICTO OK.** Corrección
+  del humo heredada de 267: al limpiar la Carta la fecha no se
+  resetea (el prefill solo llena si está vacía), así que el humo
+  ahora espera la fecha fijada en el paso 10 y no la de hoy.
+  Humo no-root: AppImage extraído corrido como `nobody` se mantuvo
+  vivo 25 s sin errores de acceso a app.asar.
+- Versión 2.5.18. La web es la misma del repo cloud (bundle de
+  Firebase md5 `9d4f0a81f3108d0f92f50f08fc48c752`).
+  AppImage 123,359,213 B md5 `a749e12ce6ae6148b932aee0f79aa8b2`;
+  .deb 97,156,580 B md5 `36159c6f629a05f0b98b5f30f97a9485`;
+  .rpm 86,211,841 B md5 `f856d7e5f47353e060ba2ffdc5fa8b78`;
+  Windows portable .exe 99,177,953 B md5
+  `91ace2523772dd5d693c7e793a091062` (NSIS portable, app.asar
+  md5 `3e16562e24dcb5dff5ee5b89db9221f7`, igual que en Linux) y su
+  ZIP 99,170,416 B md5 `95c2b1c1b16cc18152f459f661fcfb3f`.
+  app.asar 644 en los tres paquetes Linux (verificado en .deb,
+  .rpm y AppImage extraído).
+
 ## 2.5.17 — 2026-11-25
 
 - **PDF del Acuse Sistemas corregido para verse IGUAL que el formato
